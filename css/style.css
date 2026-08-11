@@ -1052,7 +1052,9 @@ a {
 .work-card--large {
     grid-row: auto;
 }
-
+.contact-form {
+    padding: 25px 20px;
+}
     .footer__container {
         flex-direction: column;
 
