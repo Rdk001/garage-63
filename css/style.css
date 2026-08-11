@@ -366,56 +366,119 @@ a {
 .service-card {
     position: relative;
 
-    min-height: 360px;
+    min-height: 390px;
 
     padding: 35px;
 
     border-right: 1px solid #2a2a2a;
     border-bottom: 1px solid #2a2a2a;
 
-    transition: background 0.3s ease;
+    background: #080808;
+
+    overflow: hidden;
+
+    transition:
+        background 0.4s ease,
+        transform 0.4s ease;
+}
+
+.service-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--accent);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform 0.4s ease;
 }
 
 .service-card:hover {
-    background: var(--dark-light);
+    background: #151515;
+
+    transform: translateY(-5px);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card__top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 100px;
 }
 
 .service-card__number {
-    display: block;
-
-    margin-bottom: 100px;
-
     color: var(--accent);
 
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
+
     letter-spacing: 2px;
 }
 
-.service-card h3 {
-    margin-bottom: 15px;
+.service-card__arrow {
+    color: #555;
 
-    font-size: 24px;
-    line-height: 1.1;
+    font-size: 28px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.service-card p {
+.service-card:hover .service-card__arrow {
+    color: var(--accent);
+
+    transform: translate(4px, -4px);
+}
+
+.service-card__content h3 {
+    max-width: 260px;
+
+    margin-bottom: 18px;
+
+    font-size: 25px;
+
+    line-height: 1.05;
+}
+
+.service-card__content p {
+    max-width: 280px;
+
     color: var(--gray);
 
     font-size: 14px;
+
+    line-height: 1.7;
 }
 
 .service-card__price {
     position: absolute;
 
+    left: 35px;
     bottom: 30px;
 
     color: #ffffff;
 
     font-size: 14px;
     font-weight: 700;
-}
 
+    letter-spacing: 0.5px;
+}
 
 /* ================================
    ABOUT
