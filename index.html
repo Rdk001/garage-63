@@ -389,51 +389,158 @@
 
         <!-- CONTACTS -->
 
-        <section class="contacts section" id="contacts">
+       <section class="contacts section" id="contacts">
 
-            <div class="container contacts__container">
+    <div class="container contacts__container">
+
+        <div class="contacts__content">
+
+            <p class="section-heading__subtitle">
+                ЗАПИСЬ НА СЕРВИС
+            </p>
+
+            <h2>
+                Ваш автомобиль
+                <span>в надёжных руках</span>
+            </h2>
+
+            <p class="contacts__description">
+                Оставьте заявку, и наш специалист свяжется
+                с вами для уточнения деталей и удобного
+                времени посещения.
+            </p>
+
+            <div class="contacts__details">
 
                 <div>
+                    <span>ТЕЛЕФОН</span>
 
-                    <p class="section-heading__subtitle">
-                        КОНТАКТЫ
-                    </p>
-
-                    <h2>
-                        Свяжитесь с нами
-                    </h2>
-
+                    <a href="tel:+79990000000">
+                        +7 (999) 000-00-00
+                    </a>
                 </div>
 
+                <div>
+                    <span>АДРЕС</span>
 
-                <div class="contacts__info">
+                    <p>
+                        г. Самара, ул. Автомобильная, 63
+                    </p>
+                </div>
 
-                    <div>
-                        <span>ТЕЛЕФОН</span>
-                        <a href="tel:+79990000000">
-                            +7 (999) 000-00-00
-                        </a>
-                    </div>
+                <div>
+                    <span>РАБОТАЕМ</span>
 
-                    <div>
-                        <span>АДРЕС</span>
-                        <p>
-                            г. Самара, ул. Автомобильная, 63
-                        </p>
-                    </div>
-
-                    <div>
-                        <span>РАБОТАЕМ</span>
-                        <p>
-                            Ежедневно 09:00 — 21:00
-                        </p>
-                    </div>
-
+                    <p>
+                        Ежедневно 09:00 — 21:00
+                    </p>
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+
+        <form class="contact-form" id="contactForm">
+
+            <div class="form-group">
+
+                <label for="name">
+                    Ваше имя
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Иван"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Телефон
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+7 (999) 000-00-00"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="service">
+                    Какая услуга нужна?
+                </label>
+
+                <select id="service" name="service">
+
+                    <option value="">
+                        Выберите услугу
+                    </option>
+
+                    <option value="Диагностика">
+                        Диагностика
+                    </option>
+
+                    <option value="ТО">
+                        Техническое обслуживание
+                    </option>
+
+                    <option value="Ремонт">
+                        Ремонт
+                    </option>
+
+                    <option value="Детейлинг">
+                        Детейлинг
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">
+                    Комментарий
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    placeholder="Например: нужно заменить масло..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="button button--primary form-submit"
+            >
+                Отправить заявку
+            </button>
+
+
+            <p class="form-status" id="formStatus"></p>
+
+        </form>
+
+    </div>
+
+</section>
 
     </main>
 
