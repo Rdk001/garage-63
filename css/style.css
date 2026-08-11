@@ -1063,3 +1063,96 @@ a {
         text-align: center;
     }
 }
+/* ================================
+   FLOATING TELEGRAM BUTTON
+================================ */
+
+.telegram-button {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 54px;
+
+    padding: 0 20px;
+
+    background: #229ED9;
+
+    color: #ffffff;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.telegram-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.telegram-button__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    font-size: 18px;
+}
+
+.telegram-button__text {
+    white-space: nowrap;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .telegram-button {
+        right: 15px;
+        bottom: 15px;
+
+        width: 54px;
+        height: 54px;
+
+        min-height: 54px;
+
+        padding: 0;
+
+        justify-content: center;
+
+        border-radius: 50%;
+    }
+
+    .telegram-button__text {
+        display: none;
+    }
+
+    .telegram-button__icon {
+        width: auto;
+        height: auto;
+    }
+}
