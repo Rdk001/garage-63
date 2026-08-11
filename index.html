@@ -1,601 +1,403 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
-        name="description"
-        content="GARAGE 63 — премиальный автосервис. Диагностика, ремонт, техническое обслуживание и детейлинг."
-    >
+      name="description"
+      content="GARAGE 63 — премиальный автосервис. Диагностика, ремонт, техническое обслуживание и детейлинг."
+    />
 
     <title>GARAGE 63 — Автосервис нового уровня</title>
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- HEADER -->
 
     <header class="header">
-        <div class="container header__container">
+      <div class="container header__container">
+        <a href="#" class="logo"> GARAGE <span>63</span> </a>
 
-            <a href="#" class="logo">
-                GARAGE <span>63</span>
-            </a>
+        <nav class="navigation">
+          <a href="#services">Услуги</a>
+          <a href="#about">О нас</a>
+          <a href="#works">Наши работы</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
 
-            <nav class="navigation">
-                <a href="#services">Услуги</a>
-                <a href="#about">О нас</a>
-                <a href="#works">Наши работы</a>
-                <a href="#contacts">Контакты</a>
-            </nav>
-
-            <a href="#contacts" class="header__button">
-                Записаться
-            </a>
-
-        </div>
+        <a href="#contacts" class="header__button"> Записаться </a>
+      </div>
     </header>
 
-
     <main>
+      <!-- HERO -->
 
-        <!-- HERO -->
+      <section class="hero">
+        <div class="hero__overlay"></div>
 
-        <section class="hero">
+        <div class="container hero__container">
+          <div class="hero__content">
+            <p class="hero__subtitle">АВТОСЕРВИС НОВОГО УРОВНЯ</p>
 
-            <div class="hero__overlay"></div>
+            <h1>
+              Ваш автомобиль
+              <span>заслуживает лучшего</span>
+            </h1>
 
-            <div class="container hero__container">
-
-                <div class="hero__content">
-
-                    <p class="hero__subtitle">
-                        АВТОСЕРВИС НОВОГО УРОВНЯ
-                    </p>
-
-                    <h1>
-                        Ваш автомобиль
-                        <span>заслуживает лучшего</span>
-                    </h1>
-
-                    <p class="hero__text">
-                        Профессиональный ремонт, техническое обслуживание
-                        и детейлинг автомобилей.
-                    </p>
-
-                    <div class="hero__buttons">
-
-                        <a href="#contacts" class="button button--primary">
-                            Записаться на сервис
-                        </a>
-
-                        <a href="#services" class="button button--outline">
-                            Наши услуги
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="hero__scroll">
-                <span>SCROLL</span>
-                <div></div>
-            </div>
-
-        </section>
-
-
-        <!-- SERVICES -->
-
-        <section class="services section" id="services">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="section-heading__subtitle">
-                        ЧТО МЫ ДЕЛАЕМ
-                    </p>
-
-                    <h2>
-                        Наши услуги
-                    </h2>
-
-                </div>
-
-
-                <div class="services__grid">
-
-    <article class="service-card">
-
-        <div class="service-card__top">
-            <span class="service-card__number">01</span>
-            <span class="service-card__arrow">↗</span>
-        </div>
-
-        <div class="service-card__content">
-
-            <h3>Диагностика</h3>
-
-            <p>
-                Компьютерная диагностика автомобиля,
-                поиск неисправностей и проверка всех
-                основных систем.
+            <p class="hero__text">
+              Профессиональный ремонт, техническое обслуживание и детейлинг
+              автомобилей.
             </p>
 
-        </div>
+            <div class="hero__buttons">
+              <a href="#contacts" class="button button--primary">
+                Записаться на сервис
+              </a>
 
-        <span class="service-card__price">
-            от 1 500 ₽
-        </span>
-
-    </article>
-
-
-    <article class="service-card">
-
-        <div class="service-card__top">
-            <span class="service-card__number">02</span>
-            <span class="service-card__arrow">↗</span>
-        </div>
-
-        <div class="service-card__content">
-
-            <h3>Техническое обслуживание</h3>
-
-            <p>
-                Замена масла, фильтров, технических
-                жидкостей и полный комплекс
-                регламентных работ.
-            </p>
-
-        </div>
-
-        <span class="service-card__price">
-            от 3 000 ₽
-        </span>
-
-    </article>
-
-
-    <article class="service-card">
-
-        <div class="service-card__top">
-            <span class="service-card__number">03</span>
-            <span class="service-card__arrow">↗</span>
-        </div>
-
-        <div class="service-card__content">
-
-            <h3>Ремонт</h3>
-
-            <p>
-                Профессиональный ремонт двигателя,
-                ходовой части, тормозной системы
-                и электрооборудования.
-            </p>
-
-        </div>
-
-        <span class="service-card__price">
-            от 2 000 ₽
-        </span>
-
-    </article>
-
-
-    <article class="service-card">
-
-        <div class="service-card__top">
-            <span class="service-card__number">04</span>
-            <span class="service-card__arrow">↗</span>
-        </div>
-
-        <div class="service-card__content">
-
-            <h3>Детейлинг</h3>
-
-            <p>
-                Глубокая очистка салона, полировка
-                кузова и защита лакокрасочного
-                покрытия автомобиля.
-            </p>
-
-        </div>
-
-        <span class="service-card__price">
-            от 5 000 ₽
-        </span>
-
-    </article>
-
-</div>
-
+              <a href="#services" class="button button--outline">
+                Наши услуги
+              </a>
             </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-
-        <section class="about section" id="about">
-
-            <div class="container about__container">
-
-                <div class="about__content">
-
-                    <p class="section-heading__subtitle">
-                        О НАС
-                    </p>
-
-                    <h2>
-                        Работаем
-                        <span>на результат</span>
-                    </h2>
-
-                    <p>
-                        GARAGE 63 — современный автосервис для тех,
-                        кто ценит качество, честность и профессиональный подход.
-                    </p>
-
-                    <p>
-                        Используем современное оборудование и проверенные
-                        технологии ремонта, чтобы ваш автомобиль всегда
-                        оставался в отличном состоянии.
-                    </p>
-
-                    <a href="#contacts" class="button button--primary">
-                        Записаться
-                    </a>
-
-                </div>
-
-
-                <div class="about__stats">
-
-                    <div class="stat">
-                        <strong>10+</strong>
-                        <span>лет опыта</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>2500+</strong>
-                        <span>автомобилей</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>4.9</strong>
-                        <span>рейтинг клиентов</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- WORKS -->
-
-        <section class="works section" id="works">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="section-heading__subtitle">
-                        НАШИ РАБОТЫ
-                    </p>
-
-                    <h2>
-                        Делаем качественно
-                    </h2>
-
-                </div>
-
-
-                <div class="works__grid">
-
-    <a href="#" class="work-card work-card--large">
-
-        <div class="work-card__image"></div>
-
-        <div class="work-card__content">
-            <span class="work-card__category">
-                Детейлинг
-            </span>
-
-            <h3>
-                Полировка и защита кузова
-            </h3>
+          </div>
         </div>
 
-        <span class="work-card__arrow">↗</span>
-
-    </a>
-
-
-    <a href="#" class="work-card">
-
-        <div class="work-card__image"></div>
-
-        <div class="work-card__content">
-            <span class="work-card__category">
-                Ремонт
-            </span>
-
-            <h3>
-                Диагностика и ремонт
-            </h3>
+        <div class="hero__scroll">
+          <span>SCROLL</span>
+          <div></div>
         </div>
+      </section>
 
-        <span class="work-card__arrow">↗</span>
+      <!-- SERVICES -->
 
-    </a>
+      <section class="services section" id="services">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-heading__subtitle">ЧТО МЫ ДЕЛАЕМ</p>
 
+            <h2>Наши услуги</h2>
+          </div>
 
-    <a href="#" class="work-card">
+          <div class="services__grid">
+            <article class="service-card">
+              <div class="service-card__top">
+                <span class="service-card__number">01</span>
+                <span class="service-card__arrow">↗</span>
+              </div>
 
-        <div class="work-card__image"></div>
-
-        <div class="work-card__content">
-            <span class="work-card__category">
-                Уход
-            </span>
-
-            <h3>
-                Профессиональная полировка
-            </h3>
-        </div>
-
-        <span class="work-card__arrow">↗</span>
-
-    </a>
-
-</div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CTA -->
-
-        <section class="cta">
-
-            <div class="container cta__container">
+              <div class="service-card__content">
+                <h3>Диагностика</h3>
 
                 <p>
-                    ВАШ АВТОМОБИЛЬ В НАДЁЖНЫХ РУКАХ
+                  Компьютерная диагностика автомобиля, поиск неисправностей и
+                  проверка всех основных систем.
                 </p>
+              </div>
 
-                <h2>
-                    Готовы записаться?
-                </h2>
+              <span class="service-card__price"> от 1 500 ₽ </span>
+            </article>
 
-                <a href="#contacts" class="button button--primary">
-                    Записаться на сервис
-                </a>
+            <article class="service-card">
+              <div class="service-card__top">
+                <span class="service-card__number">02</span>
+                <span class="service-card__arrow">↗</span>
+              </div>
 
-            </div>
+              <div class="service-card__content">
+                <h3>Техническое обслуживание</h3>
 
-        </section>
+                <p>
+                  Замена масла, фильтров, технических жидкостей и полный
+                  комплекс регламентных работ.
+                </p>
+              </div>
 
+              <span class="service-card__price"> от 3 000 ₽ </span>
+            </article>
 
-        <!-- CONTACTS -->
+            <article class="service-card">
+              <div class="service-card__top">
+                <span class="service-card__number">03</span>
+                <span class="service-card__arrow">↗</span>
+              </div>
 
-       <section class="contacts section" id="contacts">
+              <div class="service-card__content">
+                <h3>Ремонт</h3>
 
-    <div class="container contacts__container">
+                <p>
+                  Профессиональный ремонт двигателя, ходовой части, тормозной
+                  системы и электрооборудования.
+                </p>
+              </div>
 
-        <div class="contacts__content">
+              <span class="service-card__price"> от 2 000 ₽ </span>
+            </article>
 
-            <p class="section-heading__subtitle">
-                ЗАПИСЬ НА СЕРВИС
-            </p>
+            <article class="service-card">
+              <div class="service-card__top">
+                <span class="service-card__number">04</span>
+                <span class="service-card__arrow">↗</span>
+              </div>
+
+              <div class="service-card__content">
+                <h3>Детейлинг</h3>
+
+                <p>
+                  Глубокая очистка салона, полировка кузова и защита
+                  лакокрасочного покрытия автомобиля.
+                </p>
+              </div>
+
+              <span class="service-card__price"> от 5 000 ₽ </span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+
+      <section class="about section" id="about">
+        <div class="container about__container">
+          <div class="about__content">
+            <p class="section-heading__subtitle">О НАС</p>
 
             <h2>
-                Ваш автомобиль
-                <span>в надёжных руках</span>
+              Работаем
+              <span>на результат</span>
+            </h2>
+
+            <p>
+              GARAGE 63 — современный автосервис для тех, кто ценит качество,
+              честность и профессиональный подход.
+            </p>
+
+            <p>
+              Используем современное оборудование и проверенные технологии
+              ремонта, чтобы ваш автомобиль всегда оставался в отличном
+              состоянии.
+            </p>
+
+            <a href="#contacts" class="button button--primary"> Записаться </a>
+          </div>
+
+          <div class="about__stats">
+            <div class="stat">
+              <strong>10+</strong>
+              <span>лет опыта</span>
+            </div>
+
+            <div class="stat">
+              <strong>2500+</strong>
+              <span>автомобилей</span>
+            </div>
+
+            <div class="stat">
+              <strong>4.9</strong>
+              <span>рейтинг клиентов</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKS -->
+
+      <section class="works section" id="works">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-heading__subtitle">НАШИ РАБОТЫ</p>
+
+            <h2>Делаем качественно</h2>
+          </div>
+
+          <div class="works__grid">
+            <a href="#" class="work-card work-card--large">
+              <div class="work-card__image"></div>
+
+              <div class="work-card__content">
+                <span class="work-card__category"> Детейлинг </span>
+
+                <h3>Полировка и защита кузова</h3>
+              </div>
+
+              <span class="work-card__arrow">↗</span>
+            </a>
+
+            <a href="#" class="work-card">
+              <div class="work-card__image"></div>
+
+              <div class="work-card__content">
+                <span class="work-card__category"> Ремонт </span>
+
+                <h3>Диагностика и ремонт</h3>
+              </div>
+
+              <span class="work-card__arrow">↗</span>
+            </a>
+
+            <a href="#" class="work-card">
+              <div class="work-card__image"></div>
+
+              <div class="work-card__content">
+                <span class="work-card__category"> Уход </span>
+
+                <h3>Профессиональная полировка</h3>
+              </div>
+
+              <span class="work-card__arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+
+      <section class="cta">
+        <div class="container cta__container">
+          <p>ВАШ АВТОМОБИЛЬ В НАДЁЖНЫХ РУКАХ</p>
+
+          <h2>Готовы записаться?</h2>
+
+          <a href="#contacts" class="button button--primary">
+            Записаться на сервис
+          </a>
+        </div>
+      </section>
+
+      <!-- CONTACTS -->
+
+      <section class="contacts section" id="contacts">
+        <div class="container contacts__container">
+          <div class="contacts__content">
+            <p class="section-heading__subtitle">ЗАПИСЬ НА СЕРВИС</p>
+
+            <h2>
+              Ваш автомобиль
+              <span>в надёжных руках</span>
             </h2>
 
             <p class="contacts__description">
-                Оставьте заявку, и наш специалист свяжется
-                с вами для уточнения деталей и удобного
-                времени посещения.
+              Оставьте заявку, и наш специалист свяжется с вами для уточнения
+              деталей и удобного времени посещения.
             </p>
 
             <div class="contacts__details">
+              <div>
+                <span>ТЕЛЕФОН</span>
 
-                <div>
-                    <span>ТЕЛЕФОН</span>
+                <a href="tel:+79990000000"> +7 (999) 000-00-00 </a>
+              </div>
 
-                    <a href="tel:+79990000000">
-                        +7 (999) 000-00-00
-                    </a>
-                </div>
+              <div>
+                <span>АДРЕС</span>
 
-                <div>
-                    <span>АДРЕС</span>
+                <p>г. Самара, ул. Автомобильная, 63</p>
+              </div>
 
-                    <p>
-                        г. Самара, ул. Автомобильная, 63
-                    </p>
-                </div>
+              <div>
+                <span>РАБОТАЕМ</span>
 
-                <div>
-                    <span>РАБОТАЕМ</span>
-
-                    <p>
-                        Ежедневно 09:00 — 21:00
-                    </p>
-                </div>
-
+                <p>Ежедневно 09:00 — 21:00</p>
+              </div>
             </div>
+          </div>
 
-        </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name"> Ваше имя </label>
 
-
-        <form class="contact-form" id="contactForm">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Иван"
+                required
+              />
+            </div>
 
             <div class="form-group">
+              <label for="phone"> Телефон </label>
 
-                <label for="name">
-                    Ваше имя
-                </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Иван"
-                    required
-                >
-
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+7 (999) 000-00-00"
+                inputmode="numeric"
+                autocomplete="tel"
+                maxlength="18"
+                required
+              />
             </div>
-
 
             <div class="form-group">
+              <label for="service"> Какая услуга нужна? </label>
 
-                <label for="phone">
-                    Телефон
-                </label>
+              <select id="service" name="service">
+                <option value="">Выберите услугу</option>
 
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="+7 (999) 000-00-00"
-                    required
-                >
+                <option value="Диагностика">Диагностика</option>
 
+                <option value="ТО">Техническое обслуживание</option>
+
+                <option value="Ремонт">Ремонт</option>
+
+                <option value="Детейлинг">Детейлинг</option>
+              </select>
             </div>
-
 
             <div class="form-group">
+              <label for="message"> Комментарий </label>
 
-                <label for="service">
-                    Какая услуга нужна?
-                </label>
-
-                <select id="service" name="service">
-
-                    <option value="">
-                        Выберите услугу
-                    </option>
-
-                    <option value="Диагностика">
-                        Диагностика
-                    </option>
-
-                    <option value="ТО">
-                        Техническое обслуживание
-                    </option>
-
-                    <option value="Ремонт">
-                        Ремонт
-                    </option>
-
-                    <option value="Детейлинг">
-                        Детейлинг
-                    </option>
-
-                </select>
-
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Например: нужно заменить масло..."
+              ></textarea>
             </div>
 
-
-            <div class="form-group">
-
-                <label for="message">
-                    Комментарий
-                </label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    placeholder="Например: нужно заменить масло..."
-                ></textarea>
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="button button--primary form-submit"
-            >
-                Отправить заявку
+            <button type="submit" class="button button--primary form-submit">
+              Отправить заявку
             </button>
 
-
             <p class="form-status" id="formStatus"></p>
-
-        </form>
-
-    </div>
-
-</section>
-
+          </form>
+        </div>
+      </section>
     </main>
-
 
     <!-- FOOTER -->
 
     <footer class="footer">
+      <div class="container footer__container">
+        <div class="logo">GARAGE <span>63</span></div>
 
-        <div class="container footer__container">
-
-            <div class="logo">
-                GARAGE <span>63</span>
-            </div>
-
-            <p>
-                © 2026 GARAGE 63. Все права защищены.
-            </p>
-
-        </div>
-
+        <p>© 2026 GARAGE 63. Все права защищены.</p>
+      </div>
     </footer>
 
-<!-- FLOATING TELEGRAM BUTTON -->
+    <!-- FLOATING TELEGRAM BUTTON -->
 
-<a
-    href="https://t.me/garage63"
-    class="telegram-button"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Написать в Telegram"
->
-    <span class="telegram-button__icon">
-        ✈
-    </span>
+    <a
+      href="https://t.me/garage63"
+      class="telegram-button"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Написать в Telegram"
+    >
+      <span class="telegram-button__icon"> ✈ </span>
 
-    <span class="telegram-button__text">
-        Написать в Telegram
-    </span>
-</a>
+      <span class="telegram-button__text"> Написать в Telegram </span>
+    </a>
     <!-- FLOATING CALL BUTTON -->
 
-<a
-    href="tel:+79990000000"
-    class="call-button"
-    aria-label="Позвонить"
->
-    <span class="call-button__icon">
-        ☎
-    </span>
+    <a href="tel:+79990000000" class="call-button" aria-label="Позвонить">
+      <span class="call-button__icon"> ☎ </span>
 
-    <span class="call-button__text">
-        Позвонить
-    </span>
-</a>
+      <span class="call-button__text"> Позвонить </span>
+    </a>
     <script src="js/main.js"></script>
-
-</body>
+  </body>
 </html>
