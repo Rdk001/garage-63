@@ -763,6 +763,10 @@ a {
    CONTACTS
 ================================ */
 
+/* ================================
+   CONTACTS / FORM
+================================ */
+
 .contacts {
     background: #111111;
 }
@@ -773,9 +777,15 @@ a {
     grid-template-columns: 1fr 1fr;
 
     gap: 100px;
+
+    align-items: start;
 }
 
-.contacts h2 {
+.contacts__content h2 {
+    max-width: 650px;
+
+    margin-bottom: 30px;
+
     font-size: clamp(45px, 5vw, 70px);
 
     line-height: 0.95;
@@ -783,18 +793,36 @@ a {
     text-transform: uppercase;
 }
 
-.contacts__info {
+.contacts__content h2 span {
+    display: block;
+
+    color: var(--accent);
+}
+
+.contacts__description {
+    max-width: 520px;
+
+    margin-bottom: 50px;
+
+    color: var(--gray);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.contacts__details {
     display: flex;
     flex-direction: column;
 }
 
-.contacts__info > div {
-    padding: 25px 0;
+.contacts__details > div {
+    padding: 22px 0;
 
     border-bottom: 1px solid #333333;
 }
 
-.contacts__info span {
+.contacts__details span {
     display: block;
 
     margin-bottom: 8px;
@@ -802,18 +830,116 @@ a {
     color: var(--accent);
 
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 800;
 
     letter-spacing: 2px;
 }
 
-.contacts__info a,
-.contacts__info p {
+.contacts__details a,
+.contacts__details p {
     color: #ffffff;
 
-    font-size: 18px;
+    font-size: 17px;
 }
 
+
+/* ================================
+   FORM
+================================ */
+
+.contact-form {
+    padding: 45px;
+
+    background: #080808;
+
+    border: 1px solid #292929;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border: 1px solid #333333;
+
+    outline: none;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #555555;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+
+    background: #151515;
+}
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-submit {
+    width: 100%;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.form-status {
+    margin-top: 15px;
+
+    min-height: 20px;
+
+    color: var(--accent);
+
+    font-size: 13px;
+
+    text-align: center;
+}
 
 /* ================================
    FOOTER
