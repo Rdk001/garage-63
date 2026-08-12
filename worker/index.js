@@ -46,6 +46,20 @@ export default {
     }
 
     try {
+      if (!env.BOT_TOKEN || !env.CHAT_ID) {
+        console.error("Missing Telegram secrets:", {
+          botTokenExists: Boolean(env.BOT_TOKEN),
+          chatIdExists: Boolean(env.CHAT_ID),
+        });
+
+        return jsonResponse(
+          {
+            success: false,
+            message: "Telegram настройки не настроены",
+          },
+          500,
+        );
+      }
       const body = await request.json();
 
       const { name, phone, service, message } = body;
