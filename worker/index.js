@@ -1,10 +1,34 @@
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "https://rdk001.github.io",
+  "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+function jsonResponse(data, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+      ...corsHeaders,
+    },
+  });
+}
+
 export default {
   async fetch(request, env) {
+    // CORS preflight
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders,
+      });
+    }
+
     const url = new URL(request.url);
 
     // Проверяем сервер
     if (request.method === "GET" && url.pathname === "/") {
-      return Response.json({
+      return jsonResponse({
         status: "ok",
         message: "GARAGE 63 API работает",
       });
@@ -12,12 +36,12 @@ export default {
 
     // Только POST /api/contact
     if (request.method !== "POST" || url.pathname !== "/api/contact") {
-      return Response.json(
+      return jsonResponse(
         {
           success: false,
           message: "Not found",
         },
-        { status: 404 },
+        404,
       );
     }
 
@@ -27,33 +51,30 @@ export default {
       const { name, phone, service, message } = body;
 
       // Проверяем имя и телефон
-
       if (!name || !phone) {
-        return Response.json(
+        return jsonResponse(
           {
             success: false,
             message: "Имя и телефон обязательны",
           },
-          { status: 400 },
+          400,
         );
       }
 
       // Проверяем российский номер
-
       const phoneDigits = phone.replace(/\D/g, "");
 
       if (!/^[78]\d{10}$/.test(phoneDigits)) {
-        return Response.json(
+        return jsonResponse(
           {
             success: false,
             message: "Некорректный номер телефона",
           },
-          { status: 400 },
+          400,
         );
       }
 
       // Формируем сообщение Telegram
-
       const text = `
 🚗 НОВАЯ ЗАЯВКА — GARAGE 63
 
@@ -63,10 +84,9 @@ export default {
 
 💬 Комментарий:
 ${message || "Нет комментария"}
-            `;
+      `;
 
       // Отправляем в Telegram
-
       const telegramResponse = await fetch(
         `https://api.telegram.org/bot${env.BOT_TOKEN}/sendMessage`,
         {
@@ -88,28 +108,28 @@ ${message || "Нет комментария"}
       if (!telegramData.ok) {
         console.error(telegramData);
 
-        return Response.json(
+        return jsonResponse(
           {
             success: false,
             message: "Ошибка отправки в Telegram",
           },
-          { status: 500 },
+          500,
         );
       }
 
-      return Response.json({
+      return jsonResponse({
         success: true,
         message: "Заявка успешно отправлена",
       });
     } catch (error) {
       console.error(error);
 
-      return Response.json(
+      return jsonResponse(
         {
           success: false,
           message: "Ошибка сервера",
         },
-        { status: 500 },
+        500,
       );
     }
   },

@@ -116,20 +116,23 @@ document.addEventListener("DOMContentLoaded", () => {
       status.textContent = "Отправляем заявку...";
 
       try {
-        const response = await fetch("http://localhost:3000/api/contact", {
-          method: "POST",
+        const response = await fetch(
+          "https://garage-63-api.rmaslenchenko95.workers.dev/api/contact",
+          {
+            method: "POST",
 
-          headers: {
-            "Content-Type": "application/json",
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+              name,
+              phone,
+              service,
+              message,
+            }),
           },
-
-          body: JSON.stringify({
-            name,
-            phone,
-            service,
-            message,
-          }),
-        });
+        );
 
         const data = await response.json();
 
