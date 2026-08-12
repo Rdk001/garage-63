@@ -1,0 +1,6 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "garage-63-api",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-08-12",
+}
