@@ -1,0 +1,15 @@
+/* theme.css – безопасные переменные, которые могут быть подменяемы через site.json */
+/* Дублируют значения из :root в style.css, чтобы при подмене через JS сохранялась fallback‑разметка */
+
+:root {
+  --black: #080808;
+  --dark: #111111;
+  --dark-light: #181818;
+
+  --white: #ffffff;
+  --gray: #a5a5a5;
+  --gray-dark: #666666;
+
+  --accent: #d9ff00;
+  --container: 1200px;
+}

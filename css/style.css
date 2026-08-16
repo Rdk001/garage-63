@@ -1209,3 +1209,130 @@ a {
     height: auto;
   }
 }
+
+/* ================================
+   REVIEWS
+   ================================ */
+.reviews {
+  background: var(--black);
+}
+
+/* Сетка карточек */
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Карточка отзыва */
+.review-card {
+  position: relative;
+  padding: 30px;
+  border: 1px solid #2a2a2a;
+  background: #080808;
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+.review-card:hover {
+  background: #151515;
+}
+.review-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.review-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Блок с рейтингом звёзд */
+.review-card__rating {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* Текст отзыва */
+.review-card__text {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Информация о клиенте */
+.review-card__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 13px;
+  color: var(--gray-dark);
+  margin-bottom: 12px;
+}
+.review-card__info span {
+  display: inline-block;
+}
+
+/* Имя клиента */
+.review-card__client {
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* Демонстрационный бейдж */
+.review-card__demo-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(217, 255, 0, 0.15);
+  border: 1px solid rgba(217, 255, 0, 0.4);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+/* Демонстрационный блок общей оценки */
+.reviews__overall-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.reviews__overall-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.reviews__overall-label {
+  font-size: 14px;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 1000px) {
+  .reviews__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .reviews__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -3,8 +3,24 @@
 // Main JavaScript
 // ================================
 
+async function loadSiteConfig() {
+  try {
+    const response = await fetch("./site.json");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const config = await response.json();
+    if (config.title) document.title = config.title;
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta && config.description) descMeta.setAttribute('content', config.description);
+    if (config.accentColor) document.documentElement.style.setProperty('--accent', config.accentColor);
+    if (config.backgroundColor) document.documentElement.style.setProperty('--black', config.backgroundColor);
+  } catch (error) {
+    console.warn('Failed to load site.json:', error);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("GARAGE 63 — сайт загружен");
+  loadSiteConfig();
 
   // ================================
   // SMOOTH SCROLL
