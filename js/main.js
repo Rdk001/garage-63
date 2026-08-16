@@ -3,6 +3,8 @@
 // Main JavaScript
 // ================================
 
+let apiEndpoint = "https://garage-63-api.rmaslenchenko95.workers.dev/api/contact";
+
 async function loadSiteConfig() {
   try {
     const response = await fetch("./site.json");
@@ -13,6 +15,7 @@ async function loadSiteConfig() {
     if (descMeta && config.description) descMeta.setAttribute('content', config.description);
     if (config.accentColor) document.documentElement.style.setProperty('--accent', config.accentColor);
     if (config.backgroundColor) document.documentElement.style.setProperty('--black', config.backgroundColor);
+    if (config.apiEndpoint) apiEndpoint = config.apiEndpoint;
   } catch (error) {
     console.warn('Failed to load site.json:', error);
   }
@@ -47,6 +50,49 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ================================
+  // HAMBURGER MENU
+  // ================================
+
+  const hamburger = document.querySelector(".hamburger");
+  const navigation = document.querySelector(".navigation");
+
+  if (hamburger && navigation) {
+    const toggleMenu = () => {
+      const isOpen = navigation.classList.toggle("open");
+      hamburger.setAttribute("aria-expanded", isOpen);
+    };
+
+    hamburger.addEventListener("click", toggleMenu);
+
+    // Close menu when clicking a link
+    navigation.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") {
+        navigation.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Close menu on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navigation.classList.contains("open")) {
+        navigation.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Reset menu on resize to desktop width
+    const handleResize = () => {
+      if (window.innerWidth > 1000 && navigation.classList.contains("open")) {
+        navigation.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    // Also handle orientation change on mobile
+    window.addEventListener("orientationchange", handleResize);
+  }
 
   // ================================
   // CONTACT FORM
@@ -133,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const response = await fetch(
-          "https://garage-63-api.rmaslenchenko95.workers.dev/api/contact",
+          apiEndpoint,
           {
             method: "POST",
 

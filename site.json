@@ -2,5 +2,6 @@
   "title": "GARAGE 63 — Автосервис нового уровня",
   "description": "GARAGE 63 — премиальный автосервис. Диагностика, ремонт, техническое обслуживание и детейлинг.",
   "accentColor": "#d9ff00",
-  "backgroundColor": "#080808"
+  "backgroundColor": "#080808",
+  "apiEndpoint": "https://garage-63-api.rmaslenchenko95.workers.dev/api/contact"
 }
