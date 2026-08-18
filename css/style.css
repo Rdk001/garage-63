@@ -371,10 +371,7 @@ a {
 .trust-strip {
   padding-top: var(--hero-trust-space);
 
-  background: #0d0d0d;
-
-  border-top: 1px solid #242424;
-  border-bottom: 1px solid #242424;
+  background: var(--black);
 }
 
 .trust-strip + .section {
@@ -385,6 +382,11 @@ a {
   display: grid;
 
   grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  background: #0d0d0d;
+
+  border-top: 1px solid #242424;
+  border-bottom: 1px solid #242424;
 }
 
 .trust-item {
