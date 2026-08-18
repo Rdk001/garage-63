@@ -50,6 +50,11 @@ a {
   --accent: #d9ff00;
 
   --container: 1200px;
+
+  --section-space: 120px;
+  --section-edge-space: 60px;
+  --section-heading-space: 48px;
+  --hero-trust-space: 32px;
 }
 
 /* ================================
@@ -62,11 +67,11 @@ a {
 }
 
 .section {
-  padding: 120px 0;
+  padding: var(--section-edge-space) 0;
 }
 
 .section-heading {
-  margin-bottom: 60px;
+  margin-bottom: var(--section-heading-space);
 }
 
 .section-heading__subtitle {
@@ -359,44 +364,21 @@ a {
   margin-top: 45px;
 }
 
-.hero__scroll {
-  position: absolute;
-
-  z-index: 3;
-
-  bottom: 35px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 10px;
-
-  color: #777;
-
-  font-size: 9px;
-  letter-spacing: 4px;
-}
-
-.hero__scroll div {
-  width: 1px;
-  height: 50px;
-
-  background: var(--accent);
-}
-
 /* ================================
    TRUST STRIP
 ================================ */
 
 .trust-strip {
+  padding-top: var(--hero-trust-space);
+
   background: #0d0d0d;
 
   border-top: 1px solid #242424;
   border-bottom: 1px solid #242424;
+}
+
+.trust-strip + .section {
+  padding-top: var(--section-space);
 }
 
 .trust-strip__grid {
@@ -802,7 +784,7 @@ a {
 ================================ */
 
 .cta {
-  padding: 140px 0;
+  padding: var(--section-edge-space) 0;
 
   background:
     linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)),
@@ -1025,7 +1007,7 @@ a {
 ================================ */
 
 .footer {
-  padding: 30px 0;
+  padding: var(--section-edge-space) 0;
 
   background: #050505;
 
@@ -1050,6 +1032,13 @@ a {
 ================================ */
 
 @media (max-width: 1000px) {
+  :root {
+    --section-space: 88px;
+    --section-edge-space: 44px;
+    --section-heading-space: 40px;
+    --hero-trust-space: 24px;
+  }
+
   .header:has(.navigation.open) {
     position: relative;
 
@@ -1099,10 +1088,6 @@ a {
 
   .hamburger {
     display: flex;
-  }
-
-  .hero__scroll {
-    display: none;
   }
 
   .trust-strip__grid {
@@ -1161,12 +1146,15 @@ a {
 }
 
 @media (max-width: 700px) {
-  .container {
-    width: min(100% - 30px, var(--container));
+  :root {
+    --section-space: 64px;
+    --section-edge-space: 32px;
+    --section-heading-space: 32px;
+    --hero-trust-space: 20px;
   }
 
-  .section {
-    padding: 80px 0;
+  .container {
+    width: min(100% - 30px, var(--container));
   }
 
   .trust-strip__grid {
@@ -1452,7 +1440,6 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  margin-top: 40px;
 }
 
 /* Карточка отзыва */
@@ -1538,7 +1525,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .reviews__overall-value {
   font-size: 28px;
