@@ -22,13 +22,15 @@
   </head>
 
   <body>
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
     <!-- HEADER -->
 
     <header class="header">
       <div class="container header__container">
         <a href="#" class="logo"> GARAGE <span>63</span> </a>
 
-        <button class="hamburger" aria-label="Открыть меню" aria-controls="primary-navigation" aria-expanded="false">
+        <button type="button" class="hamburger" aria-label="Открыть меню" aria-controls="primary-navigation" aria-expanded="false">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -46,12 +48,10 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <!-- HERO -->
 
       <section class="hero">
-        <div class="hero__overlay"></div>
-
         <div class="container hero__container">
           <div class="hero__content">
             <p class="hero__subtitle">АВТОСЕРВИС НОВОГО УРОВНЯ</p>
@@ -249,7 +249,7 @@
           </div>
 
           <div class="works__grid">
-            <article class="work-card work-card--large work-card--featured">
+            <article class="work-card work-card--featured">
               <img
                 class="work-card__image"
                 src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=90"
@@ -545,6 +545,7 @@
                 type="text"
                 id="name"
                 name="name"
+                autocomplete="name"
                 placeholder="Иван"
                 required
               />

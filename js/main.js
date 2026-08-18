@@ -22,34 +22,7 @@ async function loadSiteConfig() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("GARAGE 63 — сайт загружен");
   loadSiteConfig();
-
-  // ================================
-  // SMOOTH SCROLL
-  // ================================
-
-  const links = document.querySelectorAll('a[href^="#"]');
-
-  links.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const targetId = link.getAttribute("href");
-
-      if (targetId === "#") {
-        return;
-      }
-
-      const target = document.querySelector(targetId);
-
-      if (target) {
-        event.preventDefault();
-
-        target.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    });
-  });
 
   // ================================
   // HAMBURGER MENU
@@ -62,6 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleMenu = () => {
       const isOpen = navigation.classList.toggle("open");
       hamburger.setAttribute("aria-expanded", isOpen);
+      hamburger.setAttribute(
+        "aria-label",
+        isOpen ? "Закрыть меню" : "Открыть меню",
+      );
     };
 
     hamburger.addEventListener("click", toggleMenu);
@@ -71,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.target.tagName === "A") {
         navigation.classList.remove("open");
         hamburger.setAttribute("aria-expanded", "false");
+        hamburger.setAttribute("aria-label", "Открыть меню");
       }
     });
 
@@ -79,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape" && navigation.classList.contains("open")) {
         navigation.classList.remove("open");
         hamburger.setAttribute("aria-expanded", "false");
+        hamburger.setAttribute("aria-label", "Открыть меню");
+        hamburger.focus();
       }
     });
 
@@ -87,16 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.innerWidth > 1000 && navigation.classList.contains("open")) {
         navigation.classList.remove("open");
         hamburger.setAttribute("aria-expanded", "false");
+        hamburger.setAttribute("aria-label", "Открыть меню");
       }
     };
     window.addEventListener("resize", handleResize);
     // Also handle orientation change on mobile
     window.addEventListener("orientationchange", handleResize);
   }
-
-  // ================================
-  // CONTACT FORM
-  // ================================
 
   // ================================
   // CONTACT FORM
@@ -188,11 +165,15 @@ document.addEventListener("DOMContentLoaded", () => {
       submitButton.textContent = "ОТПРАВЛЯЕМ...";
       status.textContent = "Отправляем заявку...";
 
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 12000);
+
       try {
         const response = await fetch(
           apiEndpoint,
           {
             method: "POST",
+            signal: controller.signal,
 
             headers: {
               "Content-Type": "application/json",
@@ -217,10 +198,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         form.reset();
       } catch (error) {
-        console.error(error);
+        if (error.name === "AbortError") {
+          status.textContent =
+            "Сервер не ответил вовремя. Попробуйте отправить заявку ещё раз.";
+        } else {
+          console.error(error);
 
-        status.textContent = "Не удалось отправить заявку. Попробуйте ещё раз.";
+          status.textContent = "Не удалось отправить заявку. Попробуйте ещё раз.";
+        }
       } finally {
+        window.clearTimeout(timeoutId);
         isSubmitting = false;
         submitButton.disabled = false;
         submitButton.textContent = submitButtonText;
