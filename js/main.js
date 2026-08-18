@@ -153,8 +153,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   if (form) {
+    const submitButton = form.querySelector(".form-submit");
+    const submitButtonText = submitButton.textContent.trim();
+    let isSubmitting = false;
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+
+      if (isSubmitting) {
+        return;
+      }
 
       const name = document.querySelector("#name").value.trim();
       const phone = document.querySelector("#phone").value.trim();
@@ -175,6 +183,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      isSubmitting = true;
+      submitButton.disabled = true;
+      submitButton.textContent = "ОТПРАВЛЯЕМ...";
       status.textContent = "Отправляем заявку...";
 
       try {
@@ -209,6 +220,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error(error);
 
         status.textContent = "Не удалось отправить заявку. Попробуйте ещё раз.";
+      } finally {
+        isSubmitting = false;
+        submitButton.disabled = false;
+        submitButton.textContent = submitButtonText;
       }
     });
   }

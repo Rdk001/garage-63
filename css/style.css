@@ -992,6 +992,11 @@ a {
   cursor: pointer;
 }
 
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .form-status {
   margin-top: 15px;
 
