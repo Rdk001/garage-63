@@ -5,6 +5,43 @@
 
 let mode = "showcase";
 let apiEndpoint = null;
+let contacts = {
+  phoneHref: null,
+  telegramHref: null,
+};
+
+function configureContactLinks() {
+  const phoneLinks = document.querySelectorAll('[data-contact-link="phone"]');
+  const telegramLinks = document.querySelectorAll('[data-contact-link="telegram"]');
+  const phoneHref = typeof contacts.phoneHref === "string" && /^tel:\S+$/i.test(contacts.phoneHref.trim())
+    ? contacts.phoneHref.trim()
+    : null;
+  let telegramHref = null;
+
+  if (typeof contacts.telegramHref === "string") {
+    try {
+      const url = new URL(contacts.telegramHref.trim());
+      if (url.protocol === "https:") telegramHref = url.href;
+    } catch (error) {
+      telegramHref = null;
+    }
+  }
+
+  phoneLinks.forEach((link) => {
+    link.removeAttribute("href");
+    if (mode === "production" && phoneHref) link.setAttribute("href", phoneHref);
+  });
+
+  telegramLinks.forEach((link) => {
+    link.removeAttribute("href");
+    link.removeAttribute("target");
+    if (mode === "production" && telegramHref) {
+      link.setAttribute("href", telegramHref);
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener noreferrer");
+    }
+  });
+}
 
 async function loadSiteConfig() {
   try {
@@ -18,15 +55,24 @@ async function loadSiteConfig() {
     if (config.backgroundColor) document.documentElement.style.setProperty('--black', config.backgroundColor);
     mode = config.mode === "production" ? "production" : "showcase";
     apiEndpoint = mode === "production" ? config.apiEndpoint : null;
+    contacts = {
+      phoneHref: config.contacts?.phoneHref ?? null,
+      telegramHref: config.contacts?.telegramHref ?? null,
+    };
   } catch (error) {
     mode = "showcase";
     apiEndpoint = null;
+    contacts = {
+      phoneHref: null,
+      telegramHref: null,
+    };
     console.warn('Failed to load site.json:', error);
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadSiteConfig();
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadSiteConfig();
+  configureContactLinks();
 
   // ================================
   // HAMBURGER MENU

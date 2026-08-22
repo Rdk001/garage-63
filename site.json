@@ -4,5 +4,9 @@
   "accentColor": "#d9ff00",
   "backgroundColor": "#080808",
   "mode": "showcase",
-  "apiEndpoint": null
+  "apiEndpoint": null,
+  "contacts": {
+    "phoneHref": "tel:+79990000000",
+    "telegramHref": "https://t.me/garage63"
+  }
 }
