@@ -3,5 +3,6 @@
   "description": "GARAGE 63 — демонстрационный шаблон сайта автосервиса. Все данные, цены, отзывы и контакты приведены для примера.",
   "accentColor": "#d9ff00",
   "backgroundColor": "#080808",
-  "apiEndpoint": "https://garage-63-api.rmaslenchenko95.workers.dev/api/contact"
+  "mode": "showcase",
+  "apiEndpoint": null
 }

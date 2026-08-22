@@ -3,7 +3,8 @@
 // Main JavaScript
 // ================================
 
-let apiEndpoint = "https://garage-63-api.rmaslenchenko95.workers.dev/api/contact";
+let mode = "showcase";
+let apiEndpoint = null;
 
 async function loadSiteConfig() {
   try {
@@ -15,8 +16,11 @@ async function loadSiteConfig() {
     if (descMeta && config.description) descMeta.setAttribute('content', config.description);
     if (config.accentColor) document.documentElement.style.setProperty('--accent', config.accentColor);
     if (config.backgroundColor) document.documentElement.style.setProperty('--black', config.backgroundColor);
-    if (config.apiEndpoint) apiEndpoint = config.apiEndpoint;
+    mode = config.mode === "production" ? "production" : "showcase";
+    apiEndpoint = mode === "production" ? config.apiEndpoint : null;
   } catch (error) {
+    mode = "showcase";
+    apiEndpoint = null;
     console.warn('Failed to load site.json:', error);
   }
 }
@@ -156,6 +160,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!name || !phone) {
         status.textContent = "Пожалуйста, заполните имя и телефон.";
+
+        return;
+      }
+
+      if (mode !== "production") {
+        status.textContent = "Демонстрационная форма — данные не отправлены.";
+
+        return;
+      }
+
+      let endpointUrl;
+
+      try {
+        endpointUrl = new URL(apiEndpoint);
+      } catch (error) {
+        endpointUrl = null;
+      }
+
+      if (
+        typeof apiEndpoint !== "string" ||
+        apiEndpoint.trim() === "" ||
+        !endpointUrl ||
+        endpointUrl.protocol !== "https:"
+      ) {
+        status.textContent =
+          "Форма временно недоступна. Свяжитесь с нами другим способом.";
 
         return;
       }
