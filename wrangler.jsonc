@@ -3,4 +3,7 @@
   "name": "garage-63-api",
   "main": "worker/index.js",
   "compatibility_date": "2026-08-12",
+  "vars": {
+    "ALLOWED_ORIGINS": "https://rdk001.github.io"
+  }
 }
