@@ -6,7 +6,7 @@
   "mode": "production",
   "apiEndpoint": "https://garage-63-api.rmaslenchenko95.workers.dev/api/contact",
   "contacts": {
-    "phoneHref": "tel:+79990000000",
-    "telegramHref": "https://t.me/garage63"
+    "phoneHref": "",
+    "telegramHref": ""
   }
 }
