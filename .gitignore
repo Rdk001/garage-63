@@ -1,2 +1,5 @@
 .env
 node_modules/
+# Local AI tooling
+CLAUDE.md
+.claude/
