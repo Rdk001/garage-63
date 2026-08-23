@@ -195,6 +195,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const phone = document.querySelector("#phone").value.trim();
       const service = document.querySelector("#service").value;
       const message = document.querySelector("#message").value.trim();
+      const website = document.querySelector("#website")?.value.trim() ?? "";
       // Проверяем телефон
       const phoneDigits = phone.replace(/\D/g, "");
 
@@ -260,6 +261,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               phone,
               service,
               message,
+              website,
             }),
           },
         );

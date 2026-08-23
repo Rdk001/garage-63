@@ -130,13 +130,21 @@ async function handleRequest(request, env) {
     const phone = getTrimmedString(body, "phone", true);
     const service = getTrimmedString(body, "service");
     const message = getTrimmedString(body, "message");
+    const website = getTrimmedString(body, "website");
 
     if (name === null || phone === null) {
       return errorResponse(request, env, "Имя и телефон обязательны", 400);
     }
 
-    if (service === null || message === null) {
+    if (service === null || message === null || website === null) {
       return errorResponse(request, env, "Поля должны содержать строки", 400);
+    }
+
+    if (website) {
+      return jsonResponse(request, env, {
+        success: true,
+        message: "Заявка успешно отправлена",
+      });
     }
 
     if (
